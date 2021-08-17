@@ -29,7 +29,7 @@ class SwaggerConfig {
     }
 
     fun apiInfoV1(): ApiInfo? {
-        return ApiInfoBuilder().description("API Rest da aplicação Doe+").title("Doe+")
+        return ApiInfoBuilder().description("PERSON API Rest of Doe+ application").title("Doe+")
             .version("1.0.0")
             //				.version(buildProperties.getVersion())
             .contact(Contact("Doe+", "https://doemais-ifsp.blogspot.com/", "doemais123@gmail.com")).build()
