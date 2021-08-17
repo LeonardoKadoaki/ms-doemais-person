@@ -3,8 +3,6 @@ package com.doemais.person.adapter.input.web.v1.controller
 import com.doemais.person.adapter.input.web.v1.api.UserApi
 import com.doemais.person.adapter.input.web.v1.api.request.UserRequest
 import com.doemais.person.adapter.input.web.v1.api.response.UserResponse
-import io.swagger.annotations.Api
-import io.swagger.annotations.ApiOperation
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
