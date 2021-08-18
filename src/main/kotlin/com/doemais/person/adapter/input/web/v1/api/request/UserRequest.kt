@@ -8,10 +8,9 @@ import java.time.LocalDate
 data class UserRequest(
     val userId: Int = 0,
     val name: String,
-    val nickName: String,
+    val nickname: String,
     val document: String,
     val birthDate: LocalDate,
-    val registerDate: LocalDate,
     val phoneNumber: String,
     val gender: UserGender,
     val aboutYou: String? = null,

@@ -6,7 +6,7 @@ import java.time.LocalDate
 data class UserResponse(
     val userId: Int = 0,
     val name: String = "",
-    val nickName: String = "",
+    val nickname: String = "",
     val document: String = "",
     val birthDate: LocalDate = LocalDate.parse("1900-01-01"),
     val registerDate: LocalDate = LocalDate.parse("1900-01-01"),

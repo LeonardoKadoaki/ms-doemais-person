@@ -19,7 +19,7 @@ interface UserApi {
     fun getUser(@PathVariable(required = true) @NotBlank userId: Int): UserResponse//substituir pelo id do token futuramente
 
     @PostMapping
-    fun registerUser(@RequestBody userRequest: UserRequest)
+    fun registerUser(@RequestBody userRequest: UserRequest): UserResponse
 
     @PutMapping
     fun updateUser(@RequestBody userRequest: UserRequest)
