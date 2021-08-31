@@ -14,18 +14,18 @@ class UserController(
 ): UserApi{
 
     override fun getUser(userId: Int): UserResponse {
-        return UserResponse()
+        return userUseCase.getUser(userId).toResponse()
     }
 
     override fun registerUser(userRequest: UserRequest): UserResponse {
         return userUseCase.save(userRequest.toDomain()).toResponse()
     }
 
-    override fun updateUser(userRequest: UserRequest) {
-        TODO("Not yet implemented")
+    override fun updateUser(userRequest: UserRequest): UserResponse {
+        return userUseCase.update(userRequest.toDomain()).toResponse()
     }
 
     override fun deleteUser(userId: Int) {
-        TODO("Not yet implemented")
+        userUseCase.delete(userId)
     }
 }

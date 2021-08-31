@@ -10,11 +10,15 @@ import org.springframework.stereotype.Service
 @Service
 class UserMysqlService(
     private val userRepository: UserRepository
-): UserRepositoryPort {
+) : UserRepositoryPort {
 
     override fun save(user: User): User = userRepository.save(user.toEntity()).toDomain()
 
-    override fun findByDocument(document: String): User?{
+    override fun findById(id: Int): User? {
+        return userRepository.findUserEntityByUserId(id)?.toDomain()
+    }
+
+    override fun findByDocument(document: String): User? {
         return userRepository.findByDocument(document)?.toDomain()
     }
 
@@ -24,6 +28,10 @@ class UserMysqlService(
 
     override fun findByPhoneNumber(phoneNumber: String): User? {
         return userRepository.findByPhoneNumber(phoneNumber)?.toDomain()
+    }
+
+    override fun delete(user: User) {
+        return userRepository.delete(user.toEntity())
     }
 
 }

@@ -13,19 +13,15 @@ data class UserEntity(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val userId: Int = 0,
 
-//    @Size(min = 1, max = 70)
     @Column(nullable = false, length = 70)
     val name: String,
 
-//    @Size(min = 1, max = 30)
     @Column(nullable = false, length = 30, unique = true)
     val nickname: String,
 
-//    @Size(min = 11, max = 11)
     @Column(nullable = false, length = 11, unique = true)
     val document: String,
 
-//    @Past(message = "A data de nascimento não pode ser maior ou igual a data atual")
     @Column(nullable = false)
     val birthDate: LocalDate,
 
@@ -38,7 +34,6 @@ data class UserEntity(
     @Column(nullable = false, length = 10)
     val gender: UserGender,
 
-//    @Size(min = 0, max = 300, message = "O texto deve conter no máximo 300 caracteres")
     @Column(nullable = true, length = 300)
     val aboutYou: String? = null,
 

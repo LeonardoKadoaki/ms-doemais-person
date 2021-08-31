@@ -2,13 +2,12 @@ package com.doemais.person.application.validation
 
 fun String.isValidCpf(charactersToIgnore: List<Char> = listOf('.', '-')): Boolean {
     val cleanCpf = this.filterNot { it in charactersToIgnore }
-    if (cleanCpf.containsInvalidCPFChars() || cleanCpf.isInvalidCpfSize() || cleanCpf.isBlacklistedCpf()) return false
+    if (cleanCpf.containsInvalidCPFChars() || cleanCpf.isInvalidCpfSize()) return false
     return cleanCpf.hasValidVerificationDigits()
 }
 
 private fun String.containsInvalidCPFChars() = this.any { !it.isDigit() }
 private fun String.isInvalidCpfSize() = this.length != 11
-private fun String.isBlacklistedCpf() = this in blacklistedCpfs
 
 private fun String.hasValidVerificationDigits(): Boolean {
     val firstNineDigits = substring(0..8)
@@ -44,15 +43,3 @@ private fun List<Int>.calculateSecondVerificationDigit(firstDigit: Int): Int {
     return if (remainder < 2) 0 else 11 - remainder
 }
 
-private val blacklistedCpfs = listOf(
-    "00000000000",
-    "11111111111",
-    "22222222222",
-    "33333333333",
-    "44444444444",
-    "55555555555",
-    "66666666666",
-    "77777777777",
-    "88888888888",
-    "99999999999"
-)

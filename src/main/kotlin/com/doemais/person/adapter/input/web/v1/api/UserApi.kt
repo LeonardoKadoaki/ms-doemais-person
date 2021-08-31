@@ -22,7 +22,7 @@ interface UserApi {
     fun registerUser(@RequestBody userRequest: UserRequest): UserResponse
 
     @PutMapping
-    fun updateUser(@RequestBody userRequest: UserRequest)
+    fun updateUser(@RequestBody userRequest: UserRequest): UserResponse
 
     @DeleteMapping("/{userId}")
     fun deleteUser(@PathVariable(required = true) @NotBlank userId: Int)//substituir pelo id do token futuramente
